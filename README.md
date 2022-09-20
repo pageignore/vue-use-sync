@@ -1,19 +1,19 @@
-# vue-useSync
+# vue-use-sync
 
 Make async easy.
 
 ## Install
-`npm i vue-useSync`
+`npm i vue-use-sync`
 
 ## Usage
 
 ```javascript
 import { reactive, ref, onMounted, watch } from 'vue';
-import { useSync } from 'vue-useSync'
+import { useSync } from 'vue-use-sync'
 
 const { track, trigger } = useSync();
 
-const state:any = reactive({
+const state = reactive({
     id: 1
 })
 
@@ -30,14 +30,14 @@ onMounted(() => {
     }, 1000)
     
     // If a function is passed in, it executes like a promise
-    track('t3', (resolve:any) => {
+    track('t3', (resolve) => {
         setTimeout(() => {
             resolve({'username': 'ignorezyt'})
         }, 2000)
     })
 
-    function getdata(id:any) {
-        track('t4', (resolve:any, reject:any) => {
+    function getdata(id) {
+        track('t4', (resolve, reject) => {
             fetch(`https://jsonplaceholder.typicode.com/todos/${id}`).then(data => {
                 resolve(data);
             }).catch(err => {
@@ -46,7 +46,7 @@ onMounted(() => {
         })
     }
 
-    trigger(['t1', 't2'], (data:any) => {
+    trigger(['t1', 't2'], (data) => {
         let t1 = data['t1'];
         let t2 = data['t2'];
         if(t1 && t2) {
@@ -54,7 +54,7 @@ onMounted(() => {
         }
     })
 
-    trigger(['t2', 't3', 't4'], (data:any) => {
+    trigger(['t2', 't3', 't4'], (data) => {
         let t2 = data['t2'];
         let t4 = data['t4'];
         if(t2) {
