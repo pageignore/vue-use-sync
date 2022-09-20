@@ -1,0 +1,5 @@
+{
+    "routerPath": "/src/router/index.ts",
+    "pageDir": "/src/views",
+    "componentPrefix": "../views"
+}
