@@ -15,9 +15,8 @@
 </style>
 
 <script lang="ts" setup>
-  import { useSync } from '../use/useSync'
+     import { useSync } from 'vue-use-sync'
     import { reactive, ref, onMounted, watch } from 'vue';
-import type { an } from 'vitest/dist/global-e98f203b';
 
     const state:any = reactive({
         id: 2
